@@ -11,7 +11,7 @@ const NegativeArticles = () => {
     setIsDarkMode(theme === "dark");
   }, [theme]);
 
-  if (!isDarkMode) return null; // Ne rien afficher si c'est le mode clair
+  if (!isDarkMode) return null; 
 
   const negativeArticles = [
     { title: "L'IA cause des pertes d'emplois", content: "De nombreux métiers sont automatisés par l'IA, ce qui pose des inquiétudes." },
