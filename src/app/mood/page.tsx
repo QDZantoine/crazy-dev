@@ -65,7 +65,7 @@ export default function Articles() {
                                 ?
                                 <section style={{display: 'flex', justifyContent:'space-around'}}>
                                     <div>
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=Brd7beyqWBHPPh8l" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/pVHKp6ffURY?si=3BRpKAAjKTj4CEeb" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
@@ -75,11 +75,83 @@ export default function Articles() {
                                 :
                                 null
                                 }
-                                {activeTriger === 'frown'
+                                {
+                                activeTriger === 'frown'
                                 ?
-                                <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pVHKp6ffURY?si=3BRpKAAjKTj4CEeb" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
-                                </div>
+                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                    <div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gy8HPSIFXEM?si=rmoSsMLE5F06rYgp" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    </div>
+                                    <div style={{width: '40%', marginBottom: 20}}>
+                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <p style={{fontSize: 18, lineHeight: 1.5}}>Parfois, tout ce dont j'ai besoin, c'est d'une pause… du monde entier.</p>
+                                        <p style={{ paddingTop: 6, fontSize: 12, fontWeight: '700'}}>Samantha Young</p>
+                                    </div>
+                                </section>
+                                :
+                                null
+                                }
+                                {
+                                activeTriger === 'laugh'
+                                ? 
+                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                    <div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbZSe6N_BXs?si=AQgti5I7KgEwqJzJ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    </div>
+                                    <div style={{width: '40%', marginBottom: 20}}>
+                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <p style={{fontSize: 18, lineHeight: 1.5}}>Le bonheur est réel sachez que vous pouvez également le partager."</p>
+                                        <p style={{ paddingTop: 6, fontSize: 12, fontWeight: '700'}}>Christopher McCandless</p>
+                                    </div>
+                                </section>
+                                :
+                                null
+                                }
+                                {
+                                activeTriger === 'meh'
+                                ?
+                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                    <div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/USml7qmGF_c?si=Sdyh-Ayh1oa6FGtO" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    </div>
+                                    <div style={{width: '40%', marginBottom: 20}}>
+                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <p style={{fontSize: 18, lineHeight: 1.5}}>Il n'y a pas de chemin vers le bonheur, le bonheur est le chemin.</p>
+                                        <p style={{ paddingTop: 6, fontSize: 12, fontWeight: '700'}}>Bouddha</p>
+                                    </div>
+                                </section>
+                                :
+                                null
+                                }
+                                {
+                                activeTriger === 'smile'
+                                ?
+                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                    <div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sok8kp_DSqE?si=Tz3mjiYDh07pzzHH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    </div>
+                                    <div style={{width: '40%', marginBottom: 20}}>
+                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <p style={{fontSize: 18, lineHeight: 1.5}}>Le bonheur est un choix. Vous pouvez choisir d'être heureux.</p>
+                                        <p style={{ paddingTop: 6, fontSize: 12, fontWeight: '700'}}>Valerie Bertinelli</p>
+                                    </div>
+                                </section>
+                                :
+                                null
+                                }
+                                 {
+                                activeTriger === 'heart'
+                                ?
+                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                    <div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DF3XjEhJ40Y?si=s6huZDc0A93okqdH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    </div>
+                                    <div style={{width: '40%', marginBottom: 20}}>
+                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <p style={{fontSize: 18, lineHeight: 1.5}}>Être amoureux, c'est sentir que le monde est un endroit magnifique.</p>
+                                        <p style={{ paddingTop: 6, fontSize: 12, fontWeight: '700'}}>Gabriel García Márquez</p>
+                                    </div>
+                                </section>
                                 :
                                 null
                                 }
