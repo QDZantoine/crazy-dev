@@ -2,6 +2,9 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Carousel, CarouselItem, CarouselContent, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
+
 
 // Définir une interface pour les articles
 interface ArticleProps {
@@ -59,20 +62,31 @@ const PositiveArticles = () => {
 
   // Le composant Article typé
   const Article = ({ title, content }: ArticleProps) => (
+
     <div>
       <h2  style={{ fontWeight: '900', fontSize: "25px"}} >{title}</h2>
       <p  style={{width: "80%"}} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
+
   );
 
   return (
-    <div>
+    <div style={{width: 500}}>
       <h2 className="text-xl font-bold">Articles Positifs sur l'IA</h2>
+      <Carousel>
+        <CarouselContent>
+  
+          <CarouselItem>
       {positiveArticles.map((article, index) => (
         <div key={index} className="p-4 bg-white shadow-md rounded-md my-2">
           <Article title={article.title} content={article.content} />
         </div>
       ))}
+      </CarouselItem>
+      </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+  </Carousel>
     </div>
   );
 };
