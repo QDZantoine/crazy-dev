@@ -19,7 +19,6 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
 
 useEffect(()=>{
   setMounted(true)
@@ -29,7 +28,7 @@ if(!mounted){
 }
   return (
     <html lang="en"suppressHydrationWarning>
-      <body>
+      <body className='bg-background'>
         <ThemeProvider>
           <Navbar />
           {children}
