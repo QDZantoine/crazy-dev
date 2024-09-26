@@ -14,14 +14,18 @@ const LightChatBot = () => {
   const [inputValue, setInputValue] = useState('');
   const { theme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [responseAI, setResponseAI] = useState<string | undefined | null>('');
   const [loader, setLoader] = useState<boolean>(false);
   const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
   });
+
   async function main() {
+    // Ajout du message de l'utilisateur avant d'envoyer la requête
+    const userMessage: Message = { sender: 'user', text: inputValue };
+    setMessages((prev) => [...prev, userMessage]); // Met à jour les messages avec le message de l'utilisateur
     setLoader(true);
+    
     const completion = await openai.chat.completions.create({
       messages: [
         {
@@ -32,37 +36,34 @@ const LightChatBot = () => {
       model: 'gpt-4o',
     });
 
-    setResponseAI(completion.choices[0].message.content);
-    console.log(completion.choices[0]);
+    const aiMessage: Message = { sender: 'ai', text: completion.choices[0].message.content };
+    setMessages((prev) => [...prev, aiMessage]); // Ajoute la réponse de l'IA au tableau des messages
+    setInputValue(''); // Réinitialise l'input
+    setLoader(false);
   }
 
   return (
     <div className="p-4 rounded-lg shadow-lg bg-white w-96">
       <div className="h-64 overflow-y-auto mb-4">
         <Bot size={40} className="text-gray-500 dark:text-gray-400 mr-2" />
-        {!responseAI && loader ? (
+        {loader ? (
           <div style={{ width: 50, height: 50, backgroundColor: 'blue' }}></div>
         ) : (
-          <p>{responseAI}</p>
-        )}
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`flex ${
-              message.sender === 'user' ? 'justify-end' : 'justify-start'
-            } mb-2`}
-          >
+          messages.map((message, index) => (
             <div
-              className={`p-2 rounded-lg ${
-                message.sender === 'user'
-                  ? 'bg-violet-400 text-white'
-                  : 'bg-gray-200 text-black'
-              }`}
+              key={index}
+              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
             >
-              {message.text}
+              <div
+                className={`p-2 rounded-lg ${
+                  message.sender === 'user' ? 'bg-violet-400 text-white' : 'bg-gray-200 text-black'
+                }`}
+              >
+                {message.text}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <div className="flex">
         <input
