@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Send } from 'lucide-react';
+import { Bot, Send } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 type Message = {
@@ -13,9 +13,9 @@ const DarkChatBot = () => {
   const [input, setInput] = useState('');
   const { theme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
+
   useEffect(() => {
-    setIsDarkMode(theme === "dark");
+    setIsDarkMode(theme === 'dark');
   }, [theme]);
 
   if (!isDarkMode) return null;
@@ -37,8 +37,9 @@ const DarkChatBot = () => {
   };
 
   return (
-    <div className="p-4 rounded-lg shadow-lg bg-white dark:bg-stone-800 w-96">
+    <div className="p-4 rounded-lg shadow-lg bg-stone-900 dark:bg-stone-800 w-96">
       <div className="h-64 overflow-y-auto mb-4">
+      <Bot size={40} className="text-gray-500 dark:text-gray-400 mr-2" />
         {messages.map((message, index) => (
           <div
             key={index}
@@ -49,7 +50,7 @@ const DarkChatBot = () => {
             <div
               className={`p-2 rounded-lg ${
                 message.sender === 'user'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-violet-400 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-black'
               }`}
             >
@@ -58,7 +59,7 @@ const DarkChatBot = () => {
           </div>
         ))}
       </div>
-      <div className="flex">
+      <div className="flex ">
         <input
           className="flex-grow p-2 border border-gray-300 rounded-l-lg dark:bg-gray-700 dark:border-gray-600"
           type="text"
@@ -67,7 +68,7 @@ const DarkChatBot = () => {
           placeholder="Type your message..."
         />
         <button
-          className="p-2 bg-blue-500 text-white rounded-r-lg"
+          className="p-2 bg-violet-400 text-white rounded-r-lg"
           onClick={handleSendMessage}
         >
           <Send size={16} />
@@ -78,4 +79,3 @@ const DarkChatBot = () => {
 };
 
 export default DarkChatBot;
-

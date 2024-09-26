@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Send } from 'lucide-react';
+import { Bot, Send } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 type Message = {
@@ -47,6 +47,7 @@ const LightChatBot = () => {
   return (
     <div className="p-4 rounded-lg shadow-lg bg-white w-96">
       <div className="h-64 overflow-y-auto mb-4">
+      <Bot size={40} className="text-gray-500 dark:text-gray-400 mr-2" />
         {messages.map((message, index) => (
           <div
             key={index}
@@ -57,7 +58,7 @@ const LightChatBot = () => {
             <div
               className={`p-2 rounded-lg ${
                 message.sender === 'user'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-violet-400 text-white'
                   : 'bg-gray-200 text-black'
               }`}
             >
@@ -75,7 +76,7 @@ const LightChatBot = () => {
           placeholder="Type your message..."
         />
         <button
-          className="p-2 bg-blue-500 text-white rounded-r-lg"
+          className="p-2 bg-violet-400 text-white rounded-r-lg"
           onClick={handleSendMessage}
         >
           <Send size={16} />
