@@ -11,6 +11,7 @@ import { ModeToggle } from '../DarkModeToggle';
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Articles', href: '/articles', current: false },
+  { name: 'Mood', href: '/mood', current: false },
 ];
 
 function classNames(...classes: string[]) {
