@@ -7,7 +7,6 @@ export default function Articles() {
   return (
     <>
       <div>
-        <Navbar />
         <main>
           <PositiveArticles />
           <NegativeArticles />

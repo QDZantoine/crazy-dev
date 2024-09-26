@@ -1,8 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Send, User } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useTheme } from 'next-themes';
-
 
 type Message = {
   sender: string;
@@ -16,25 +15,33 @@ const LightChatBot = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    setIsDarkMode(theme === "dark");
+    setIsDarkMode(theme === 'dark');
   }, [theme]);
 
   if (isDarkMode) return null;
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim() === '') return;
 
     const newMessage = { sender: 'user', text: input };
     setMessages([...messages, newMessage]);
     setInput('');
 
-    setTimeout(() => {
-      const botResponse = {
-        sender: 'bot',
-        text: 'Hello! How can I help you today?',
-      };
-      setMessages((prev) => [...prev, botResponse]);
-    }, 1000);
+    try {
+      const response = await fetch('/api/chatgpt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: input }),
+      });
+
+      const data = await response.json();
+      const botMessage = { sender: 'bot', text: data.response };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error fetching ChatGPT response:', error);
+    }
   };
 
   return (
@@ -79,5 +86,3 @@ const LightChatBot = () => {
 };
 
 export default LightChatBot;
-
-
