@@ -40,7 +40,6 @@ const DarkChatBot = () => {
       "T'as déjà pensé à te recycler... en silence ?"
   ];
   const randomResponse = fakeResponse[Math.floor(Math.random() * fakeResponse.length)];
-  console.log(randomResponse);
 
   useEffect(() => {
     setIsDarkMode(theme === 'dark');
