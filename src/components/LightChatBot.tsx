@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import { Bot, Send } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import OpenAI from 'openai';
+import Loader from './ui/loader/loader';
 
 type Message = {
   sender: string;
-  text: string;
+  text: string | null;
 };
 
 const LightChatBot = () => {
@@ -21,6 +22,8 @@ const LightChatBot = () => {
   });
 
   async function main() {
+    if (inputValue.trim() === '') return;
+    setInputValue('')
     // Ajout du message de l'utilisateur avant d'envoyer la requête
     const userMessage: Message = { sender: 'user', text: inputValue };
     setMessages((prev) => [...prev, userMessage]); // Met à jour les messages avec le message de l'utilisateur
@@ -42,12 +45,18 @@ const LightChatBot = () => {
     setLoader(false);
   }
 
+  const KeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      main()
+    }
+  }
+
   return (
-    <div className="p-4 rounded-lg shadow-lg bg-white w-96">
-      <div className="h-64 overflow-y-auto mb-4">
+    <div className="p-4 rounded-lg shadow-lg bg-white w-3/5 h-full min-h-96">
+      <div className="h-full min-h-96 overflow-y-auto mb-4">
         <Bot size={40} className="text-gray-500 dark:text-gray-400 mr-2" />
         {loader ? (
-          <div style={{ width: 50, height: 50, backgroundColor: 'blue' }}></div>
+          <Loader/>
         ) : (
           messages.map((message, index) => (
             <div
@@ -68,10 +77,12 @@ const LightChatBot = () => {
       <div className="flex">
         <input
           className="flex-grow p-2 border border-gray-300 rounded-l-lg"
+          style={{color: 'black'}}
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Type your message..."
+          onKeyDown={KeyDown}
         />
         <button
           className="p-2 bg-violet-400 text-white rounded-r-lg"

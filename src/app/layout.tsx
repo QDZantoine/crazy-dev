@@ -5,6 +5,7 @@ import './globals.css';
 import Navbar from '@/components/ui/navbarTailwind';
 import { ReactNode, useEffect, useState } from 'react';
 import { ThemeProvider, useTheme } from 'next-themes';
+import 'semantic-ui-css/semantic.min.css';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

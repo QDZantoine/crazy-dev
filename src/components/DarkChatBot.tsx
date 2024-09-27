@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Bot, Send } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import Loader from './ui/loader/loader';
 
 type Message = {
   sender: string;
@@ -10,6 +11,8 @@ type Message = {
 
 const DarkChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [loader, setLoader] = useState<boolean>(false);
+
   const [input, setInput] = useState('');
   const { theme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -58,31 +61,46 @@ const DarkChatBot = () => {
         text: `${randomResponse}`,
       };
       setMessages((prev) => [...prev, botResponse]);
+      setLoader(false)
     }, 1000);
+    
   };
 
+  const KeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      submit()
+    }
+  }
+  const submit = () => {
+    setLoader(true)
+    handleSendMessage()
+    
+  } 
+
   return (
-    <div className="p-4 rounded-lg shadow-lg bg-stone-900 dark:bg-stone-800 w-96">
-      <div className="h-64 overflow-y-auto mb-4">
+    <div className="p-4 rounded-lg shadow-lg dark:bg-stone-800 bg-stone-900 w-3/5 h-full min-h-96">
+      <div className="h-full min-h-96 overflow-y-auto mb-4">
       <Bot size={40} className="text-gray-500 dark:text-gray-400 mr-2" />
         {messages.map((message, index) => (
           <div
-            key={index}
-            className={`flex ${
-              message.sender === 'user' ? 'justify-end' : 'justify-start'
-            } mb-2`}
+          key={index}
+          className={`flex ${
+            message.sender === 'user' ? 'justify-end' : 'justify-start'
+          } mb-2`}
           >
             <div
               className={`p-2 rounded-lg ${
                 message.sender === 'user'
-                  ? 'bg-violet-400 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-black'
+                ? 'bg-violet-400 text-white'
+                : 'bg-gray-200 dark:bg-gray-700 text-black'
               }`}
-            >
+              >
               {message.text}
             </div>
           </div>
         ))}
+        {loader ? <Loader/> : null}
+        
       </div>
       <div className="flex ">
         <input
@@ -91,10 +109,11 @@ const DarkChatBot = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
+          onKeyDown={KeyDown}
         />
         <button
           className="p-2 bg-violet-400 text-white rounded-r-lg"
-          onClick={handleSendMessage}
+          onClick={submit}
         >
           <Send size={16} />
         </button>

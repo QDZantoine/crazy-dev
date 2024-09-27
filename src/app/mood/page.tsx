@@ -18,7 +18,7 @@ export default function Articles() {
     const [activeTriger, setActiveTrigger] = useState('')
     return (
         <div>
-            <section style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', minHeight: 400, width: '80%', marginLeft: 'auto', marginRight: 'auto' }}>
+            <section style={{ display: 'flex', flexWrap:'wrap', justifyContent: 'space-around', alignItems: 'center', minHeight: 400, width: '80%', marginLeft: 'auto', marginRight: 'auto' }}>
                 <Drawer>
                     <DrawerTrigger onClick={() => setActiveTrigger('angry')}>
                         <Card style={{ padding: 20, backgroundColor: 'red' }}>
@@ -62,12 +62,12 @@ export default function Articles() {
                             <DrawerDescription>
                                 {activeTriger === 'angry'
                                 ?
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/pVHKp6ffURY?si=3BRpKAAjKTj4CEeb" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/2yJgwwDcgV8?si=MH6Wnbs2tW-wun8Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
-                                        <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
+                                        <h2 style={{ paddingBottom: 20, paddingTop: 10, fontSize: 30}}>la phrase du jour: </h2>
                                         <p style={{fontSize: 18, lineHeight: 1.5}}>Je ne comprends pas comment tu arrives à être aussi confiant alors que tu te trompes presque tout le temps.</p>
                                     </div>
                                 </section>
@@ -77,9 +77,9 @@ export default function Articles() {
                                 {
                                 activeTriger === 'frown'
                                 ?
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gy8HPSIFXEM?si=rmoSsMLE5F06rYgp" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/gy8HPSIFXEM?si=rmoSsMLE5F06rYgp" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
@@ -93,9 +93,9 @@ export default function Articles() {
                                 {
                                 activeTriger === 'laugh'
                                 ? 
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbZSe6N_BXs?si=AQgti5I7KgEwqJzJ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/ZbZSe6N_BXs?si=AQgti5I7KgEwqJzJ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
@@ -109,9 +109,9 @@ export default function Articles() {
                                 {
                                 activeTriger === 'meh'
                                 ?
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/USml7qmGF_c?si=Sdyh-Ayh1oa6FGtO" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/USml7qmGF_c?si=Sdyh-Ayh1oa6FGtO" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
@@ -125,9 +125,9 @@ export default function Articles() {
                                 {
                                 activeTriger === 'smile'
                                 ?
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sok8kp_DSqE?si=Tz3mjiYDh07pzzHH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/sok8kp_DSqE?si=Tz3mjiYDh07pzzHH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
@@ -141,9 +141,9 @@ export default function Articles() {
                                 {
                                 activeTriger === 'heart'
                                 ?
-                                <section style={{display: 'flex', justifyContent:'space-around'}}>
+                                <section style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
                                     <div>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DF3XjEhJ40Y?si=s6huZDc0A93okqdH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/DF3XjEhJ40Y?si=s6huZDc0A93okqdH" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                     </div>
                                     <div style={{width: '40%', marginBottom: 20}}>
                                         <h2 style={{ paddingBottom: 20, fontSize: 30}}>la phrase du jour: </h2>
